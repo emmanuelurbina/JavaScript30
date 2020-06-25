@@ -56,19 +56,15 @@
     <audio data-key="76" src="./public/sounds/tink.wav"></audio>
     <audio data-key="75" src="./public/sounds/tom.wav"></audio>
 </body>
-
+<script src="./public/js/main.js"></script>
 <script>
-    window.addEventListener('keydown', (e) => {
-        /* Se obtiene el elemento audio */
-        const audio = document.querySelector(`audio[data-key="${e.keyCode}"]`);
-        /* Si se obtiene un null se detiene */
-        if (!audio) return;
-        /* Si se vuelve a presionar una tecla emitira enseguida el audio */
-        audio.currentTime = 0;
-        /* Se reproduce audio */
-        audio.play();
-
-    })
+    document.addEventListener("DOMContentLoaded", function(event) {
+        document.addEventListener("keydown", e => {
+            const Drump = new DrumpKit;
+            Drump.kit = document.querySelector(`audio[data-key="${e.keyCode}"]`);
+            Drump.play();
+        })
+    });
 </script>
 
 </html>
